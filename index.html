@@ -9,48 +9,48 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <title>Tip Calcultor</title>
+  <title>Tip Calculator</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="mt-5 title">
-        <h3>Tip Calculator</h3>
+    <div class="mt-5 card-header">
+        <h3 class="text-center">Tip Calculator</h3>
     </div>
 
-    <div class="card my-3 mb-5">
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <label for="cost">Cost of Meal</label>
-            <input type="string" class="form-control" id="cost" aria-describedby="cost of meal">
-          </div>
-          <div class="form-group" id="tipSelect">
-            <label for="tip">Tip Percentage</label>
-            <label class="radio-inline"><input type="radio" name="radiotip" value="10" checked>10%</label>
-            <label class="radio-inline"><input type="radio" name="radiotip" value="15">15%</label>
-            <label class="radio-inline"><input type="radio" name="radiotip" value="20">20%</label>
-            <label class="radio-inline"><input type="radio" name="radiotip" value="other">
-              Other: <input type="string" class="form-control" id="tip" aria-describedby="tip percentage">   
-            </label>
-          </div>
-          <div class="form-group col-md-12">
-            <label for="split">Number of People Splitting the Bill</label>
-            <select id="split" class="form-control">
-              <option selected>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <button id="submit" type="submit" class="btn btn-primary">Calculate Tip</button>
-        </form>
-      </div>
-      <div>
-        <h2 id="tipAmount">Tip Amount Per Person: </h2>
-      </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="cost">Cost of Meal</label>
+          <input type="string" class="form-control" id="cost" aria-describedby="cost of meal">
+        </div>
+        <div class="form-group" id="tipSelect">
+          <label for="tip">Tip Percentage</label>
+          <label class="radio-inline"><input type="radio" name="radiotip" value="10" checked>10%</label>
+          <label class="radio-inline"><input type="radio" name="radiotip" value="15">15%</label>
+          <label class="radio-inline"><input type="radio" name="radiotip" value="20">20%</label>
+          <label class="radio-inline"><input type="radio" name="radiotip" value="other">
+            Other: <input type="string" class="form-control" id="tip" aria-describedby="tip percentage">   
+          </label>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="split">Number of People Splitting the Bill</label>
+          <select id="split" class="form-control">
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary">Calculate Tip</button>
+      </form>
     </div>
+    
+    <div class="card-footer">
+      <h4 id="tipAmount">Tip Per Person: </h4>
+    </div>
+
   </div>
   </div>
 
