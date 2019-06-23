@@ -24,12 +24,15 @@
           <div class="form-group">
             <label for="cost">Cost of Meal</label>
             <input type="string" class="form-control" id="cost" aria-describedby="cost of meal">
-            <small id="cost" class="form-text text-muted">#.##</small>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="tipSelect">
             <label for="tip">Tip Percentage</label>
-            <input type="string" class="form-control" id="tip" aria-describedby="tip percentage">
-            <small id="tip" class="form-text text-muted">Tip</small>
+            <label class="radio-inline"><input type="radio" name="radiotip" value="10" checked>10%</label>
+            <label class="radio-inline"><input type="radio" name="radiotip" value="15">15%</label>
+            <label class="radio-inline"><input type="radio" name="radiotip" value="20">20%</label>
+            <label class="radio-inline"><input type="radio" name="radiotip" value="other">
+              Other: <input type="string" class="form-control" id="tip" aria-describedby="tip percentage">   
+            </label>
           </div>
           <div class="form-group col-md-12">
             <label for="split">Number of People Splitting the Bill</label>
