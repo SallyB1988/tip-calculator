@@ -7,8 +7,12 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-width: 600px;
 }
 
+.container {
+  max-width: 600px;
+}
 .card-header {
   background-color: rgb(167, 163, 160);
   border-radius: 15px 15px 0px 0px !important;
@@ -27,7 +31,41 @@ body{
 
 #submit {
   background-color: rgb(167, 163, 160);
-  border-color: rgb(167, 163, 160);
+  border-color: rgb(128, 125, 123);
   color: black;
 }
 
+#tip {
+  width: 50px;
+}
+
+#cost {
+  width: 50px;
+  padding: 5px;
+}
+
+.radio {
+  width: 150px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+#split{
+  height: 25px;
+  width: 40px;
+  padding: 0;
+  text-align: center;
+}
+
+input {
+  height: 25px;
+}
+
+input[type=radio] {
+  height: 12px;
+}
+
+#tipAmount {
+  text-align: center;
+}

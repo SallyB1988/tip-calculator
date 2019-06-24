@@ -1,6 +1,7 @@
 // REGEX patterns used to validate input
   const regex_currency = /^((\d+)(\.\d{2})?)$/; // positive float with max of 2 decimal places
   const regex_float = /^\d+(\.\d*)?$/;  // positive float value
+  const regex_int = /^\d+$/;  // positive integer
 
   $("#submit").on("click", (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@
     }
     if (tipPercent[0] === ".") tipPercent = "0"+tipPercent;
     let split = $("#split").val().trim();
+    console.log('split is ' + split);
     let tipValue = 0;
     
     // Validation
@@ -25,6 +27,10 @@
     if ( !isValidTip(tipPercent) ) {
       // Validate tip percent input
       errorMsg = errorMsg + "\nInvalid Tip Percentage value"
+    }
+    if ( !isValidSplit(split) ) {
+      // Validate tip percent input
+      errorMsg = errorMsg + "\nInvalid Split Tip value"
     }
 
     if (errorMsg !== "" ) {
@@ -61,9 +67,10 @@
     }
   }
 
-  const clearFormFields = () => {
-    $("#cost").val('');
-    $("#tip").val('');
-    $("#split").val('1');
+  const isValidSplit = (num) => {
+    if (num.match(regex_int) === null) {
+      return false;
+    } else {
+      return true;
+    }
   }
-
