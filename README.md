@@ -8,3 +8,5 @@ By default, the tip will be generated assuming a single person is paying the bil
 
 # General Information
 This app uses JavaScript, HTML, CSS, Bootstrap, and jQuery. 
+
+[Tip Calculator App](https://sallyb1988.github.io/tip-calculator/)
