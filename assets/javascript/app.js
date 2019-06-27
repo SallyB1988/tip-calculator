@@ -7,31 +7,16 @@
     e.preventDefault();
     // get values from form. Trim empty spaces off string. Remove leading zeroes, if any
     let cost = $("#cost").val().trim();
-    console.log(cost);
-    if (cost[0] === ".") cost = "0"+cost;
-    console.log('updated cost: '+cost);
+    if (cost[0] === ".") cost = "0"+cost; // add leading zero if cost is < 1
     let tipPercent = $("#tipSelect input:radio:checked").val()
     if (tipPercent === "other") {
-      tipPercent = $("#tip").val().trim();
+      tipPercent = $("#unique-tip").val().trim();
     }
     if (tipPercent[0] === ".") tipPercent = "0"+tipPercent;
     let split = $("#split").val().trim();
-    console.log('split is ' + split);
     let tipValue = 0;
-    
-    // Validation
-    let errorMsg = "";
-    if ( !isValidCurrency(cost) ) {
-      errorMsg = errorMsg + "\nInvalid Cost of Meal value"
-    }
-    if ( !isValidTip(tipPercent) ) {
-      // Validate tip percent input
-      errorMsg = errorMsg + "\nInvalid Tip Percentage value"
-    }
-    if ( !isValidSplit(split) ) {
-      // Validate tip percent input
-      errorMsg = errorMsg + "\nInvalid Split Tip value"
-    }
+
+    let errorMsg = validateInput(cost, tipPercent, split)
 
     if (errorMsg !== "" ) {
       alert(errorMsg)
@@ -41,6 +26,39 @@
     }
 
   })
+
+  // select 'other' radio button when unique-tip field is in focus
+  $('#unique-tip').focus(function() {
+      $('#other').prop("checked", true);
+  })
+
+  // clear unique-tip field when a tip option besides 'other' is selected
+  $('input[type=radio][name=radiotip]').change(function() {
+    if(!($('#unique-tip').is(':focus'))){
+      $('#unique-tip').val(null);
+    }
+  })
+
+  /**
+   * Validates all input values. A message is returned containing information
+   * about any invalid data.
+   * @param {*} cost 
+   * @param {*} tip 
+   * @param {*} split 
+   */
+  const validateInput = (cost, tip, split) => {
+    let errorMsg = "";
+    if ( !isValidCurrency(cost) ) {
+      errorMsg = errorMsg + "\nInvalid Cost of Meal value"
+    }
+    if ( !isValidTip(tip) ) {
+      errorMsg = errorMsg + "\nInvalid Tip Percentage value"
+    }
+    if ( !isValidSplit(split) ) {
+      errorMsg = errorMsg + "\nInvalid Split Tip value"
+    }
+    return errorMsg;
+  }
 
   /**
    * Validates currency format. Must be a positive float with no more than two decimal places.
@@ -67,8 +85,12 @@
     }
   }
 
+  /**
+   * Validates split input. Must be a positive integer.
+   * @param {*} num 
+   */
   const isValidSplit = (num) => {
-    if (num.match(regex_int) === null) {
+    if (num <= 0 || num.match(regex_int) === null) {
       return false;
     } else {
       return true;

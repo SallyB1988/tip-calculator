@@ -14,33 +14,43 @@
 
 <body>
   <div class="container">
-    <div class="mt-5 card-header">
+    <div class="card-header">
         <h3 class="text-center">Tip Calculator</h3>
     </div>
 
     <div class="card-body">
       <form>
-        <div class="row">
+        <div class="row"> <!-- Meal Cost-->
           <div class="col-md-2 col-sm-1"></div>
           <label class="col-md-3 col-sm-4 text-right font-weight-bold" for="cost">Meal Cost:</label>
           $<input class="col-md-2 col-sm-2 ml-2" id="cost" type="string" aria-describedby="cost of meal">
         </div>
-        <div class="row py-2" id="tipSelect">
+        <div class="row py-2" id="tipSelect"> <!-- Tip -->
           <div class="col-md-1 col-sm-1"></div>
           <label class="col-md-4 col-sm-4 text-right font-weight-bold" for="tip">Tip:</label>
           <div class="col-md-2 col-sm-4">
-            <label class="radio"><input type="radio" name="radiotip" value="10" checked>10%</label>
-            <label class="radio"><input type="radio" name="radiotip" value="15">15%</label>
+            <label class="radio"><input type="radio" name="radiotip" value="10">10%</label>
+            <label class="radio"><input type="radio" name="radiotip" value="15" checked>15%</label>
             <label class="radio"><input type="radio" name="radiotip" value="20">20%</label>
             <label class="radio">
-              <input type="radio" name="radiotip" value="other">
+              <input
+                id="other"
+                type="radio"
+                name="radiotip"
+                value="other"
+                onclick="if(this.checked){ document.getElementById('tip').focus();}" 
+                >
                 Other: &nbsp;
-              <input id="tip" type="string" aria-describedby="tip percentage"> %
+                <input
+                id="unique-tip"
+                type="string"
+                aria-describedby="tip percentage"
+                > %
             </label>
 
           </div>
         </div>
-        <div class="row mt-4 justify-content-center">
+        <div class="row mt-4 justify-content-center"> <!-- Split n ways -->
           <label class="font-weight-bold" for="split">Split Tip</label>
           <input class="ml-2" id="split" type="string" aria-describedby="cost of meal" value="1">
           <p class="font-weight-bold ml-1">

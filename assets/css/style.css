@@ -3,39 +3,41 @@ body{
   margin: 0;
   /* The image used */
   background-image: url("../images/restaurant2.jpg");
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
   min-width: 600px;
 }
 
 .container {
   max-width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .card-header {
-  background-color: rgb(167, 163, 160);
+  background-color: rgb(161, 158, 155);
   border-radius: 15px 15px 0px 0px !important;
 }
 
 .card-body {
-  background-color: rgba(199, 194, 188, 0.884);
+  background-color: rgba(199, 194, 188, 0.918);
   border-radius: 0px;
 }
 
 .card-footer {
-  background-color: rgb(167, 163, 160);
+  background-color: rgb(161, 158, 155);
   border-radius: 0px 0px 15px 15px !important;
 }
 
 
 #submit {
-  background-color: rgb(167, 163, 160);
+  background-color: rgb(161, 158, 155);
   border-color: rgb(128, 125, 123);
   color: black;
 }
 
-#tip {
+#unique-tip {
   width: 50px;
 }
 
